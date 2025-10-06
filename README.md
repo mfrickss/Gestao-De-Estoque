@@ -1,2 +1,2 @@
-# Gest-o-de-Estoque
+# Gestão de Estoque
 Projeto desenvolvido em python
