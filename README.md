@@ -28,17 +28,17 @@ Os dados são persistidos em um arquivo JSON e podem ser exportados para CSV, pe
 
 ```
 gestao-de-estoque/
-├── estoque.json # Armazena os dados persistidos do estoque
-├── main.py # Ponto de entrada da aplicação
-├── meuEstoque.csv # Exportação dos produtos em formato CSV
-├── models/ # Módulos responsáveis pelas classes de domínio
+├── estoque.json       # Armazena os dados persistidos do estoque
+├── main.py            # Ponto de entrada da aplicação
+├── meuEstoque.csv     # Exportação dos produtos em formato CSV
+├── models/            # Módulos responsáveis pelas classes de domínio
 │ ├── init.py
-│ ├── estoque.py # Classe Estoque (gerencia operações do inventário)
-│ └── produto.py # Classe Produto (representa um item do estoque)
-├── tests/ # Testes automatizados
+│ ├── estoque.py       # Classe Estoque (gerencia operações do inventário)
+│ └── produto.py       # Classe Produto (representa um item do estoque)
+├── tests/             # Testes automatizados
 │ └── test_estoque.py
-├── requirements.txt # Dependências do projeto
-└── README.md # Documentação do sistema
+├── requirements.txt   # Dependências do projeto
+└── README.md          # Documentação do sistema
 ```
 
 
