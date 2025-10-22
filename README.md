@@ -25,20 +25,25 @@ Os dados são persistidos em um arquivo JSON e podem ser exportados para CSV, pe
 ---
 
 ## 📁 Estrutura do Projeto
-
+          
 ```
 gestao-de-estoque/
-├── estoque.json       # Armazena os dados persistidos do estoque
-├── main.py            # Ponto de entrada da aplicação
-├── meuEstoque.csv     # Exportação dos produtos em formato CSV
-├── models/            # Módulos responsáveis pelas classes de domínio
+├── .gitignore                    # Arquivo de ignorados do Git (configurações, caches, etc.)
+├── estoque.json                  # Armazena os dados persistidos do estoque
+├── main.py                       # Ponto de entrada da aplicação
+├── meuEstoque.csv                # Exportação dos produtos em formato CSV
+├── factories/                    # Módulos para criação de objetos
+│ └── produto_factory.py          # Lógica para calcular o ID e criar novos produtos
+├── models/                       # Módulos responsáveis pelas classes de domínio
 │ ├── init.py
-│ ├── estoque.py       # Classe Estoque (gerencia operações do inventário)
-│ └── produto.py       # Classe Produto (representa um item do estoque)
-├── tests/             # Testes automatizados
+│ ├── estoque.py                  # Classe Estoque (gerencia operações do inventário)
+│ └── produto.py                  # Classe Produto (representa um item do estoque)
+├── repositories/                 # Módulos para persistência e acesso a dados
+│ └── estoque_repository.py       # Lida com a leitura/escrita de JSON e exportação de CSV
+├── tests/                        # Testes automatizados
 │ └── test_estoque.py
-├── requirements.txt   # Dependências do projeto
-└── README.md          # Documentação do sistema
+├── requirements.txt              # Dependências do projeto
+└── README.md                     # Documentação do sistema
 ```
 
 
@@ -82,7 +87,7 @@ Isso validará todas as principais funcionalidades da classe Estoque.
 
 ## 👨‍💻 Autor
 
-- [Ricardo Augusto de Camargo](https://github.com/mfrickss)
+- [Ricardo Camargo](https://github.com/mfrickss)
 
 ---
 
