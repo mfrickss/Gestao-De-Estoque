@@ -1,6 +1,5 @@
 from .produto import Produto
-from rich.console import Console
-from rich.table import Table
+from views.ProductView import ProdutoView
 from factories.produto_factory import ProdutoFactory
 
 class Estoque: 
@@ -8,24 +7,7 @@ class Estoque:
         self.produtos = produtosIniciais if produtosIniciais is not None else []
 
     def getProdutos(self):
-        console = Console()
-
-        table = Table(title="Lista de produtos", show_header=True, header_style="bold magenta")
-
-        table.add_column("ID", style="cyan", no_wrap=True)
-        table.add_column("Nome", style="green")
-        table.add_column("Quantidade", justify="right", style="yellow")
-        table.add_column("Preço", style="blue" )
-
-        for produto in self.produtos:
-            table.add_row(
-                str(produto.id),
-                produto.nome,
-                str(produto.quantidade),
-                f"R${produto.preco:.2f}"
-            )
-        
-        console.print(table)
+        ProdutoView.mostrarProdutos(self.produtos)
 
     def postProduto(self, nome, qtd, preco):
         for produto in self.produtos:
