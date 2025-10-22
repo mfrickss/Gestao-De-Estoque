@@ -1,29 +1,14 @@
-# def adicionarProduto(nome, qtd):
-#     if any(produto['nome'] == nome for produto in estoque):
-#         print("Produto já cadastrado!")
-#         return 
-#     if estoque:
-#         novo_id = max(produto['id'] for produto in estoque) + 1
-#     else:
-#         novo_id = 1
-
-#     novoProduto = {'id': novo_id, 'nome': nome, 'qtd': qtd}
-#     estoque.append(novoProduto)
-
-#     print(f"Produto '{nome}' adicionado com sucesso!")
-#     return novoProduto
-
 from models import Produto, Estoque 
+from repositories.estoque_repository import EstoqueRepository
 
-estoque_manager = Estoque()
-
-estoque_manager.carregarJson("estoque")
+estoqueRepo = EstoqueRepository()
+estoqueManager = Estoque()
+produtosIniciais = estoqueRepo.carregarJson("estoque")
+estoqueManager.produtos = produtosIniciais
 
 op = -1
 while op != 0:
 
-    
-    
     print("-" * 10)
     print("GERÊNCIADOR DE ESTOQUE")
     print("-" * 10)
@@ -41,30 +26,31 @@ while op != 0:
 
         match op:
             case 1:
-                estoque_manager.listar_produtos()
+                estoqueManager.getProdutos()
             case 2:
                 nome = input("Informe o nome do produto: ").capitalize()
                 qtd = int(input("Informe a quantidade do produto: "))
                 preco = float(input("Informe o preço do produto: "))
-                estoque_manager.adicionarProduto(nome, qtd, preco)
+                estoqueManager.postProduto(nome, qtd, preco)
             case 3:
-                id_produto = int(input("Informe o id do produto: "))
-                nova_qtd = int(input("Informe a nova quantidade do produto: "))
-                estoque_manager.atualizarQuantidade(id_produto, nova_qtd)
+                idProduto = int(input("Informe o id do produto: "))
+                novaQtd = int(input("Informe a nova quantidade do produto: "))
+                estoqueManager.putQuantidade(idProduto, novaQtd)
             case 4:
-                id_produto = int(input("Informe o ID do produto: "))
-                novo_preco = float(input("Informe o preço do produto: "))
-                estoque_manager.atualizarPreco(novo_preco)
+                idProduto = int(input("Informe o ID do produto: "))
+                novoPreco = float(input("Informe o preço do produto: "))
+                estoqueManager.putPreco(idProduto, novoPreco)
             case 5:
-                id_produto = int(input("Informe o id do produto que desejas remover: "))
-                estoque_manager.removerProduto(id_produto)
+                idProduto = int(input("Informe o id do produto que desejas remover: "))
+                estoqueManager.deleteProduto(idProduto)
             case 6:
-                estoque_manager.exportarCsv("meuEstoque.csv")
+                estoqueRepo.exportarCsv("meuEstoque.csv", estoqueManager.produtos)
             case 0: 
-                estoque_manager.salvarEmJson("estoque")
+                estoqueRepo.salvarEmJson("estoque", estoqueManager.produtos)
                 print("Obrigado por utilizar nosso sistema. Até logo!")
             case _:
                 print("Opção inválida!")
+
     except ValueError:
         print("ERRO! Por favor, digite um número válido!")
 

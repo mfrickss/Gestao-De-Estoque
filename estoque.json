@@ -2,55 +2,13 @@
     {
         "id": 1,
         "nome": "Caneta",
-        "quantidade": 100,
-        "preco": 400
+        "quantidade": 300,
+        "preco": 3.99
     },
     {
         "id": 2,
-        "nome": "Caderno",
-        "quantidade": 860,
-        "preco": 500
-    },
-    {
-        "id": 3,
-        "nome": "Penal",
-        "quantidade": 10,
-        "preco": 600
-    },
-    {
-        "id": 4,
-        "nome": "Lapis",
-        "quantidade": 560,
-        "preco": 700
-    },
-    {
-        "id": 5,
-        "nome": "Borracha",
-        "quantidade": 1000,
-        "preco": 800
-    },
-    {
-        "id": 6,
-        "nome": "Livro",
-        "quantidade": 60,
-        "preco": 900
-    },
-    {
-        "id": 7,
-        "nome": "Pasta",
-        "quantidade": 90,
-        "preco": 10.9
-    },
-    {
-        "id": 8,
-        "nome": "Canet\u00e3o",
-        "quantidade": 300,
-        "preco": 1.5
-    },
-    {
-        "id": 9,
         "nome": "Cola",
         "quantidade": 300,
-        "preco": 7.5
+        "preco": 7.89
     }
 ]
