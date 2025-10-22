@@ -40,6 +40,8 @@ gestao-de-estoque/
 │ └── produto.py                  # Classe Produto (representa um item do estoque)
 ├── repositories/                 # Módulos para persistência e acesso a dados
 │ └── estoque_repository.py       # Lida com a leitura/escrita de JSON e exportação de CSV
+├── views/
+│ └── ProductView.py              # Formata a tabela dos produtos
 ├── tests/                        # Testes automatizados
 │ └── test_estoque.py
 ├── requirements.txt              # Dependências do projeto
